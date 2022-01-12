@@ -4,7 +4,7 @@ let spd = Number(document.getElementById("speed").value);
 async function getSpeed(){
     spd = Number(document.getElementById("speed").value);
     if(spd < 1)
-        spd = 10;
+        spd = 20;
 }
 async function pause(){
     return new Promise(resolve => {
@@ -87,10 +87,16 @@ async function gnome(arr){
 
 //
 async function radix(arr){
+    await getSpeed();
+    let lr = 15;
+    if(spd < 20)
+        lr = 8;
     let highest = await maximum(arr);
     for(let exp = 1; Math.floor(highest/exp) > 0; exp *= 10){
+        for(let i = 0; i < lr; i++){
+            await pause();
+        }
         await countingSort(arr, exp);
-        await pause();
     } 
     for(let i = 0; i < nums.children.length; i++) nums.children[i].setAttribute("class","element sorted");
     return;
@@ -107,7 +113,6 @@ async function countingSort(arr, exp){
     for(let i = nums.children.length - 1; i >=0; i--) results[--counts[Math.floor(arr[i]/exp)%10]] = Number(arr[i]);
 // copy result to nums
     for(let i = 0; i < nums.children.length; i++){
-        pause();
         arr[i] = results[i];
         nums.children[i].setAttribute("class", "element");
         nums.children[i].innerText = results[i];

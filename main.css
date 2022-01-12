@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: radial-gradient(rgb(94, 241, 241),powderblue);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    margin:0;
+}
+/* Formatting for Navigation Bar*/
+.navContainer {
+    background-color: black;
+    display: flex;
+    overflow: hidden;
+}
+.navContainer a {
+    color: white;
+    font-size: 2em;
+    padding: .3em .4em;
+    text-align: center;
+    text-decoration: none;
+}
+.navContainer a.current {
+    background-color: #0363f3;
+    color: white;
+}
+
+.navContainer a:hover {
+    background-color: lightblue;
+    color: black;
+}
+
+/* Formatting for Button Bar*/
+.buttonContainer {
+    overflow: hidden;
+    align-items: center;
+    position:relative;
+    text-align: center;
+}
+
+.buttonContainer button{
+    background:lightcoral;
+    text-decoration: none;
+    border: 0.1em solid black;
+    border-radius: 2em;
+    font-size: 1.25em;
+    padding: .3em .4em;
+    margin: 10px auto;
+    text-align: center;
+}
+.buttonContainer input {
+    margin: 10px auto;
+    height: inherit;
+    font-size: 1.25em;
+}
+
+/* Formatting for display box*/
+.display {
+    position:relative;
+    margin: 2em auto;
+    border: 3px solid green;
+    background-color: rgb(187, 247, 245);
+    width: 1440px;
+    height: 540px;
+    max-width: 1400px;
+    max-height: 540px;
+    bottom:0px;
+    text-align: center;
+}
+
+.array {
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem;
+    flex-direction: row;
+    text-align: center;
+}
+
+.element {
+    /*17-500*/
+    text-align: center;
+    flex: 1;
+    width: fit-content;
+    margin: 2px;
+    background-color: lightsalmon;
+    height: 17px;
+    bottom:0px;
+    transition: all .5s ease-in;
+}
+
+.element.sorted {
+    text-align: center;
+    background-color: lime;
+    transition: all .5s ease-out;
+}
+
+.element.selected {
+    background-color: thistle;
+    transition: all .5s ease-out;
+}

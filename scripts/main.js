@@ -3,6 +3,8 @@ let arr = new Array();
 const lower = 1;
 const upper = 500;
 let count = 10;
+
+
 // create randomly generated array on start up
 window.onload = function(){
     for (let counter  = 0; counter < count; counter++){
@@ -21,13 +23,13 @@ window.onload = function(){
 
 
 async function sort(){
-    bubble(arr);
-    // let nums =  document.getElementById("numbers");
-    // arr.sort(function(a,b){return a-b});
-    // for(let i = 0; i < arr.length; i++){
-    //     nums.children[i].innerText = arr[i];
-    //     nums.children[i].style.height = `${arr[i]}px`;
-    // }
+    let algo = Number(document.querySelector(".current").getAttribute("algo"));
+    if(algo == 1)
+        bubble(arr);
+    if(algo == 2)
+        gnome(arr);
+    if(algo == 3)
+        radix(arr);
 }
 
 async function generate(){
@@ -57,4 +59,9 @@ async function generate(){
         nums.children[i].innerText = arr[i];
         nums.children[i].style.height = `${arr[i]}px`;
     }
+}
+
+async function setCurrent(id){
+    document.getElementsByClassName("current")[0].classList.remove("current");
+    document.getElementById(id).classList.add("current");
 }

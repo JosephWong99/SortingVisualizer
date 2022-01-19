@@ -11,15 +11,18 @@
     <div class="navContainer" id="nav">
         <a class="current"  onclick="setCurrent(this.id)" id="bubble" algo = 1>Bubble</a>
         <a onclick="setCurrent(this.id)" id="gnome" algo = 2>Gnome</a>
-        <a onclick="setCurrent(this.id)" id="raidx" algo = 3>Radix</a>
-        <a >About</a>
+        <a onclick="setCurrent(this.id)" id="insertion" algo = 3>Insertion</a>
+        <a onclick="setCurrent(this.id)" id="merge" algo = 4>Merge</a>
+        <a onclick="setCurrent(this.id)" id="quick" algo = 5>Quick</a>
+        <a onclick="setCurrent(this.id)" id="radix" algo = 6>Merge</a>
+        <a onclick="setCurrent(this.id)" id="selection" algo = 7>Selection</a>
     </div>
     <div class="display"><div class="array" id="numbers"></div></div>
     <div class="buttonContainer"> 
         <button onclick="sort()">Sort</button>
         <button onclick="generate()">Generate</button>
         <input type="number" placeholder="# of Elements(1-40)" id="count"></input>
-        <input type="number" value="20" placeholder="Speed(1-100)" id="speed"></input>
+        <input type="number" placeholder="Speed(1-100)" id="speed"></input>
     </div>
     <script src="./scripts/main.js"></script>
     <script src="./scripts/sort.js"></script>

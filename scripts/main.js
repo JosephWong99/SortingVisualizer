@@ -4,9 +4,16 @@ const lower = 1;
 const upper = 500;
 let count = 10;
 
-
 // create randomly generated array on start up
 window.onload = function(){
+    // set algorithm
+    let algo;
+    algo = localStorage.getItem("sort");
+    if(algo == null)
+        algo = "bubble"
+    document.getElementsByClassName("current")[0].classList.remove("current");
+    document.getElementById(algo).classList.add("current");
+    // randomly create array and fill
     for (let counter  = 0; counter < count; counter++){
         let randomNum = Math.floor(Math.random()*(upper - lower + 1) + lower);
         arr.push(parseInt(randomNum));
@@ -29,7 +36,21 @@ async function sort(){
     if(algo == 2)
         gnome(arr);
     if(algo == 3)
+        insertion(arr);
+    if(algo == 4){
+        await mergeSort(arr, 0, arr.length-1);
+        let nums =  document.getElementById("numbers");
+        for(let i = 0; i < nums.children.length; i++) nums.children[i].setAttribute("class","element sorted");
+    }
+    if(algo == 5){
+        await quick(arr, 0, arr.length-1);
+        let nums =  document.getElementById("numbers");
+        for(let i = 0; i < nums.children.length; i++) nums.children[i].setAttribute("class","element sorted");
+    }
+    if(algo == 6)
         radix(arr);
+    if(algo == 7)
+        selectionS(arr);
 }
 
 async function generate(){
@@ -61,7 +82,7 @@ async function generate(){
     }
 }
 
-async function setCurrent(id){
-    document.getElementsByClassName("current")[0].classList.remove("current");
-    document.getElementById(id).classList.add("current");
+async function setCurrent(id){   
+    localStorage.setItem("sort", id);
+    location.reload();
 }
